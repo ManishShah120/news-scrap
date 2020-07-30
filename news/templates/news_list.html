@@ -1,0 +1,5 @@
+<h1>List of all News </h1>
+
+{% for instance in object_list %}
+    <li>{{ instance.id }} - <a href = '{{instance.get_absolute_url}}'> {{ instance.title }}</a></li>
+{% endfor %}
