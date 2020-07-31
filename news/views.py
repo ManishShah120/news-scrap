@@ -9,8 +9,8 @@ def news_list(request):
     return render(request, 'news_list.html', context)
 
 
-def dynamic_lookup_view(request, id):
-    obj = News.objects.get(id=id)
+def dynamic_lookup_view(request, news_slug):
+    obj = News.objects.get(slug=news_slug)
     context = {
         "object":obj
     }

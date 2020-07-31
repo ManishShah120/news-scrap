@@ -6,5 +6,5 @@ from .views import (
 
 urlpatterns = [
     path('', news_list, name='news_list'),
-    path('<int:id>/', dynamic_lookup_view, name='news_detail'),
+    path('<slug:news_slug>', dynamic_lookup_view, name='news_detail'),
 ]
