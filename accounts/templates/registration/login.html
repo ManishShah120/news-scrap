@@ -1,0 +1,76 @@
+{% extends 'base2.html' %}
+{% load bootstrap4 %}
+{% block body %}
+    <section>
+        <div id="page-wrapper" class="sign-in-wrapper">
+            <div class="graphs">
+                <div class="sign-in-form">
+                    <div class="sign-in-form-top">
+                        <h1>Log in</h1>
+                    </div>
+                    <div class="signin">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            <input type="submit" value="Log in">
+                        </form>
+                        <div class="signin-rit">
+                            <span class="checkbox1">
+                                        <label class="checkbox"><input type="checkbox" name="checkbox" checked="">Forgot Password ?</label>
+                                    </span>
+                            <p><a href="../password_reset">Click Here</a> </p>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="new_people">
+                        <h2>For New People</h2>
+                        <p></p>
+                        <a href="../register">Register Now!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} login
+<form action="" method="POST">
+    {{form}}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">login</button>
+</form> {% endcomment %}
