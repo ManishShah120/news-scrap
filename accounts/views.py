@@ -1,5 +1,7 @@
 from django.shortcuts import render , redirect
 from .forms import UserForm
+from django.contrib.auth import logout, authenticate
+from django.contrib import messages
 
 def register(request):
     if request.method == 'POST':
@@ -16,9 +18,10 @@ def register(request):
     return render(request , 'registration/register.html' , context)
 
 
-
-
-
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("/news")
 
 
 

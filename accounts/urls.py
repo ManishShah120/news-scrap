@@ -2,11 +2,13 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import (
     register,
+    logout_request,
 )
 app_name = 'accounts'
 
 urlpatterns = [
-    path('register/' , register , name='register') , 
+    path('register/' , register , name='register'),
+    path('logout/' , logout_request, name='logout'),
     # All this below part came from default auth_views so these are not required anymore
     # path('login/', auth_views.LoginView.as_view(), name='login'),
     # path('password_change/', auth_views.PasswordChangeView.as_view(), name='password_change'),
