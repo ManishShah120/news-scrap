@@ -28,102 +28,60 @@
                                 <div>
                                     <div id="container">
                                         <ul class="list">
-                                            <a href="single.html">
-                                                <li>
-                                                    <img src="images/m1.jpg" title="" alt="" />
-                                                    <section class="list-left">
-                                                        <h5 class="title">There are many variations of passages of Lorem Ipsum</h5>
-                                                        <span class="adprice">$290</span>
-                                                        <p class="catpath">Mobile Phones » Brand</p>
-                                                    </section>
-                                                    <section class="list-right">
-                                                        <span class="date">Today, 17:55</span>
-                                                        <span class="cityname">City name</span>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                            </a>
-                                            <a href="single.html">
-                                                <li>
-                                                    <img src="images/m2.jpg" title="" alt="" />
-                                                    <section class="list-left">
-                                                        <h5 class="title">It is a long established fact that a reader long established</h5>
-                                                        <span class="adprice">$310</span>
-                                                        <p class="catpath">Mobile Phones » Brand</p>
-                                                    </section>
-                                                    <section class="list-right">
-                                                        <span class="date">Today, 17:45</span>
-                                                        <span class="cityname">City name</span>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                            </a>
-                                            <a href="single.html">
-                                                <li>
-                                                    <img src="images/m3.jpg" title="" alt="" />
-                                                    <section class="list-left">
-                                                        <h5 class="title">Contrary to popular belief, Lorem Ipsum is not</h5>
-                                                        <span class="adprice">$190</span>
-                                                        <p class="catpath">Mobile Phones » Brand</p>
-                                                    </section>
-                                                    <section class="list-right">
-                                                        <span class="date">Today, 17:30</span>
-                                                        <span class="cityname">City name</span>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                            </a>
-                                            <a href="single.html">
-                                                <li>
-                                                    <img src="images/m4.jpg" title="" alt="" />
-                                                    <section class="list-left">
-                                                        <h5 class="title">The standard chunk of Lorem Ipsum used since the</h5>
-                                                        <span class="adprice">$480</span>
-                                                        <p class="catpath">Mobile Phones » Brand</p>
-                                                    </section>
-                                                    <section class="list-right">
-                                                        <span class="date">Today, 17:25</span>
-                                                        <span class="cityname">City name</span>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                            </a>
-                                            <a href="single.html">
-                                                <li>
-                                                    <img src="images/m4.jpg" title="" alt="" />
-                                                    <section class="list-left">
-                                                        <h5 class="title">The standard chunk of Lorem Ipsum used since the</h5>
-                                                        <span class="adprice">$480</span>
-                                                        <p class="catpath">Mobile Phones » Brand</p>
-                                                    </section>
-                                                    <section class="list-right">
-                                                        <span class="date">Today, 17:25</span>
-                                                        <span class="cityname">City name</span>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                            </a>
+
+
+                                            {% for object in object_list %}
+                                                <a href="single.html">
+                                                    <li>
+                                                        <section class="list-left">
+                                                            <h5 class="title">{{object.title}}</h5>
+                                                            <span class="adprice">$290</span>
+                                                            <p class="catpath">Mobile Phones » Brand</p>
+                                                        </section>
+                                                        <section class="list-right">
+                                                            <span class="date">Today, 17:55</span>
+                                                            <span class="cityname">City name</span>
+                                                        </section>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                </a>
+                                            {% endfor %}
+
+
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
                             <center>
-                                <ul class="pagination pagination-sm">
-                                    <li><a href="#">Prev</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">6</a></li>
-                                    <li><a href="#">7</a></li>
-                                    <li><a href="#">8</a></li>
-                                    <li><a href="#">Next</a></li>
-                            </center>
-                            </ul>
-                        </div>
 
+                                {% if object_list.has_other_pages %}
+                                    <ul class="pagination pagination-sm">
+                                        
+                                        {% if object_list.has_previous %}
+                                            <li><a href="?page={{ object_list.previous_page_number }}">Prev</a></li>
+                                        {% else %}
+                                            <li class="disabled"></li>
+                                        {% endif %}
+
+                                        {% for pages in object_list.paginator.page_range %}
+                                            {% if object_list.number == pages %}
+                                                <li><a href="#">{{pages}}</a></li>
+                                            {% else %}
+                                                <li><a href="?page={{pages}}">{{pages}}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if object_list.has_next %}
+                                            <li><a href="?page={{ object_list.next_page_number }}">Next</a></li>
+                                        {% else %}
+                                            <li class="disabled"></li>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+
+                            </center>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,16 @@
 from django.shortcuts import render
 from .models import News
+from django.core.paginator import Paginator
 
 def news_list(request):
     queryset = News.objects.all()
+
+
+    paginator = Paginator(queryset, 5)
+    page_number = request.GET.get('page')
+    queryset = paginator.get_page(page_number)
+
+
     context = {
        'object_list': queryset
     }
