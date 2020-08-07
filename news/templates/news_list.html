@@ -14,8 +14,8 @@
             <div class="side-bar col-md-3">
                 <div class="search-hotel">
                     <h3 class="sear-head">Search Events</h3>
-                    <form>
-                        <input type="text" value="Event name..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Event name...';}" required="">
+                    <form method="GET" action="/news">
+                        <input type="text" value="Event name..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Event name...';}" name ="q" required="">
                         <input type="submit" value=" ">
                     </form>
                 </div>
