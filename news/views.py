@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 
 def news_list(request, *args, **kwargs):
-    # fOR scraping part - START
+    # fOR scraping part - START::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     response = requests.get("http://www.iitg.ac.in/home/eventsall/events")
     soup = BeautifulSoup(response.content,"html.parser")
     cards = soup.find_all("div", attrs={"class": "newsarea"})
@@ -20,12 +20,25 @@ def news_list(request, *args, **kwargs):
         iitg_date.append(card.find("div", attrs={"class": "ndate"}).text)
         iitg_title.append(card.find("div", attrs={"class": "ntitle"}).text.strip())
         iitg_link.append(card.find("div", attrs={"class": "ntitle"}).a['href'])
-    # fOR scraping part - END
+    # fOR scraping part - END::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-    # fOR storing the scraped data directly into the dtatbase from the views.py file - START
+    
+    # fOR storing the scraped data directly into the dtatbase from the views.py file - START---------------------------------------------------------------
     for i in range(len(iitg_title)):
-        News.objects.create(title = iitg_title[i], datess = iitg_date[i], linkss = iitg_link[i])
-    # fOR storing the scraped data directly into the dtatbase from the views.py file - END
+        News.objects.get_or_create(title = iitg_title[i], datess = iitg_date[i], linkss = iitg_link[i])
+
+                
+
+
+    # for i in range(len(iitg_title)):
+    #     for instance in News.objects.all():
+    #         if instance.title == iitg_title[i]:
+    #             News.objects.create(title = iitg_title[i], datess = iitg_date[i], linkss = iitg_link[i])
+
+
+
+
+    # fOR storing the scraped data directly into the dtatbase from the views.py file - END-----------------------------------------------------------------
 
     queryset = News.objects.all()   #Getting all the objects from the database
 
