@@ -26,18 +26,6 @@ def news_list(request, *args, **kwargs):
     # fOR storing the scraped data directly into the dtatbase from the views.py file - START---------------------------------------------------------------
     for i in range(len(iitg_title)):
         News.objects.get_or_create(title = iitg_title[i], datess = iitg_date[i], linkss = iitg_link[i])
-
-                
-
-
-    # for i in range(len(iitg_title)):
-    #     for instance in News.objects.all():
-    #         if instance.title == iitg_title[i]:
-    #             News.objects.create(title = iitg_title[i], datess = iitg_date[i], linkss = iitg_link[i])
-
-
-
-
     # fOR storing the scraped data directly into the dtatbase from the views.py file - END-----------------------------------------------------------------
 
     queryset = News.objects.all()   #Getting all the objects from the database
@@ -46,7 +34,7 @@ def news_list(request, *args, **kwargs):
     if search_query:
         queryset = queryset.filter(
             Q(title__icontains = search_query) |
-            Q(description__icontains = search_query)
+            Q(linkss__icontains = search_query)
         )
 
     paginator = Paginator(queryset, 5)  #Adding pagination

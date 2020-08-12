@@ -5,6 +5,7 @@ class News(models.Model):
     title         =   models.CharField(max_length=120)
     datess        =   models.CharField(max_length=120)
     linkss        =   models.CharField(max_length=120)
+    entry_date    =   models.DateTimeField(auto_now_add=True)
     slug          =   models.SlugField(blank=True, null=True)
 
     def save(self, *args, **kwargs):

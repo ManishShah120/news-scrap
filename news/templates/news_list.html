@@ -8,8 +8,12 @@
 <!-- Products -->
 <div class="total-ads main-grid-border">
     <div class="container">
-        <div class="select-box">
-        </div>
+        
+        <hr class="line1" style='border: 1px solid #f00;'>
+        {% comment %} <div class="select-box">
+        </div> {% endcomment %}
+
+
         <div class="ads-grid">
             <div class="side-bar col-md-3">
                 <div class="search-hotel">
@@ -30,113 +34,22 @@
                                         <ul class="list">
 
 
-                                                <a href="http://eict.iitg.ac.in/online_courses_training.html" target="_blank">
-                                                    <li>
-                                                        <section class="list-left">
-                                                            <h6 class="title">4 batch for the certification programme on AI & ML by Eckovation in association with E&ICT Academy IIT Guwahati</h6>
-                                                            <span class="adprice">Schedule: 15 Aug 2020 - 15 Aug 2020</span>
-                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">Indian Institute of Technology Guwahati</font></p>
-                                                        </section>
-                                                        <section class="list-right">
-                                                            <span class="date">Today, 17:55</span>
-                                                            <span class="cityname">India, Guwahati</span>
-                                                        </section>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                </a>
-
-                                                <a href="https://event.iitg.ac.in/fmfp2020/" target="_blank">
-                                                    <li>
-                                                        <section class="list-left">
-                                                            <h6 class="title">8th International and 47th National conference on Fluid Mechanics and Fluid Power</h6>
-                                                            <span class="adprice">Schedule: 09 Dec 2020 - 11 Dec 2020</span>
-                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">Indian Institute of Technology Guwahati</font></p>
-                                                        </section>
-                                                        <section class="list-right">
-                                                            <span class="date">Today, 17:55</span>
-                                                            <span class="cityname">India, Guwahati</span>
-                                                        </section>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                </a>
-
-                                                <a href="http://eict.iitg.ac.in/online_courses_training.html" target="_blank">
-                                                    <li>
-                                                        <section class="list-left">
-                                                            <h6 class="title">4 months Internship programme on VLSI Circuit Design</h6>
-                                                            <span class="adprice">Schedule: 10 Aug 2020 - 10 Dec 2020</span>
-                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">Indian Institute of Technology Guwahati</font></p>
-                                                        </section>
-                                                        <section class="list-right">
-                                                            <span class="date">Today, 17:55</span>
-                                                            <span class="cityname">India, Guwahati</span>
-                                                        </section>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                </a>
-
-                                                <a href="http://eict.iitg.ac.in/online_courses_training.html" target="_blank">
-                                                    <li>
-                                                        <section class="list-left">
-                                                            <h6 class="title">6 week Training cum Internship programme on AI & ML under TEQIP-III orgainsed by Assam Science Technology University</h6>
-                                                            <span class="adprice">Schedule: 10 Aug 2020 - 20 Sep 2020</span>
-                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">Indian Institute of Technology Guwahati</font></p>
-                                                        </section>
-                                                        <section class="list-right">
-                                                            <span class="date">Today, 17:55</span>
-                                                            <span class="cityname">India, Guwahati</span>
-                                                        </section>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                </a>
-
-                                                <a href="http://eict.iitg.ac.in/online_courses_training.html" target="_blank">
-                                                    <li>
-                                                        <section class="list-left">
-                                                            <h6 class="title">6 week Training cum Internship programme on Industry 4.0 (Industrial IoT) under TEQIP-III orgainsed by Assam Science Technology University</h6>
-                                                            <span class="adprice">Schedule: 10 Aug 2020 - 20 Sep 2020</span>
-                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">Indian Institute of Technology Guwahati</font></p>
-                                                        </section>
-                                                        <section class="list-right">
-                                                            <span class="date">Today, 17:55</span>
-                                                            <span class="cityname">India, Guwahati</span>
-                                                        </section>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                </a>
-
-                                                <a href="http://eict.iitg.ac.in/online_courses_training.html" target="_blank">
-                                                    <li>
-                                                        <section class="list-left">
-                                                            <h6 class="title">6 week Training cum Internship programme on Robotics Fundamentals under TEQIP-III orgainsed by Assam Science Technology University</h6>
-                                                            <span class="adprice">Schedule: 10 Aug 2020 - 20 Sep 2020</span>
-                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">Indian Institute of Technology Guwahati</font></p>
-                                                        </section>
-                                                        <section class="list-right">
-                                                            <span class="date">Today, 17:55</span>
-                                                            <span class="cityname">India, Guwahati</span>
-                                                        </section>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                </a>
-
-
-                                            {% comment %} {% for object in object_list %}
-                                                <a href="single.html">
+                                            {% for object in object_list %}
+                                                <a href="{{object.linkss}}" target="_blank">
                                                     <li>
                                                         <section class="list-left">
                                                             <h5 class="title">{{object.title}}</h5>
-                                                            <span class="adprice">$290</span>
-                                                            <p class="catpath">Institution » IITG</p>
+                                                            <span class="adprice">Schedule: {{object.datess}}</span>
+                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">Indian Institute of Technology, Guwahati</font></p>
                                                         </section>
                                                         <section class="list-right">
-                                                            <span class="date">Today, 17:55</span>
-                                                            <span class="cityname">City name</span>
+                                                            <span class="date">{{object.entry_date|date:'d b, Y'}}</span>
+                                                            <span class="cityname">India, Guwahati</span>
                                                         </section>
                                                         <div class="clearfix"></div>
                                                     </li>
                                                 </a>
-                                            {% endfor %} {% endcomment %}
+                                            {% endfor %}
 
 
                                         </ul>
