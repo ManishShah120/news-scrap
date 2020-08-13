@@ -105,6 +105,10 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
 	<center>
 		<div id="mapid" style='height: 280px; width: 1143px;'>
 			<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -112,14 +116,11 @@
 			<script>
 
 				var mymap = L.map('mapid').setView([-3.687845, 113.776067], 5);	//map.setView([lat,lng],zoom)
-
-
-
-
-
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 						attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 					}).addTo(mymap);
+
+				var marker = L.marker([-6.149493887315755, 106.80682897567749]).addTo(mymap)
 			</script>
 		</div>
 	</center>
@@ -146,7 +147,7 @@
 
 		<!--footer section start-->		
 		<footer>
-			<div class="footer-bottom text-center">
+		<div class="footer-bottom text-center">
 			<div class="container">
 				<div class="footer-logo">
 					<a href="/news"><span>Edu</span>News</a>
