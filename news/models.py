@@ -15,6 +15,7 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = "news"
+        ordering = ["-entry_date"]
 
     def __str__(self):
         return f'{self.title}'

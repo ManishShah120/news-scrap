@@ -44,7 +44,6 @@ def news_list(request, *args, **kwargs):
     context = {
        'object_list': queryset
     }
-
     return render(request, 'news_list.html', context)
 
 
