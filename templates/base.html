@@ -77,6 +77,8 @@
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    crossorigin=""></script>
 
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
 
 
 </head>
@@ -89,8 +91,7 @@
 			<div class="header-right">
 
 			
-			
-
+		
 			<a class="account" href="/accounts/logout">User: {{user.username}}</a>
 			{% if user.username == '' %}
 				<a class="account" href="/accounts/login">login</a>
@@ -111,16 +112,19 @@
 
 	<center>
 		<div id="mapid" style='height: 280px; width: 1143px;'>
-			<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-
+			
 			<script>
 
-				var mymap = L.map('mapid').setView([-3.687845, 113.776067], 5);	//map.setView([lat,lng],zoom)
+				var mymap = L.map('mapid').setView([-3.687845, 113.776067], 5);
+
+				L.marker([-6.149493887315755, 106.80682897567749]).bindPopup('College Name').addTo(mymap);
+				L.marker([-6.149493887315755, 110.80682897567749]).bindPopup('College Name').addTo(mymap);
+
+
+
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 						attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 					}).addTo(mymap);
-
-				var marker = L.marker([-6.149493887315755, 106.80682897567749]).addTo(mymap)
 			</script>
 		</div>
 	</center>
@@ -152,6 +156,7 @@
 				color: #000;
 				font: 22px/1.4 "BebasNeueRegular", BebasNeue, "Bebas Neue", Arial, sans-serif;
 				margin: 1em 0 0;
+				position: center;
 			}
 
 			/* BEGIN EMAIL CAPTURE STYLES*/
@@ -238,9 +243,9 @@
 						<a href="/news"><span>Edu</span>News</a>
 					</div>
 					<div class="footer-email">
-						<h6 class="ftr-hdr">Sign up for exclusive offers and inspiration</h6>
+						<h6 class="ftr-hdr" style="color: yellow">Subscribe to the mailing list</h6>
 						<div id="ftr-email" class="ftr-email-form">
-							<form id="ftrEmailForm" method="post">
+							<form method="post">
 								<input type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address" />
 								<input type="submit" class="button" value="SUBSCRIBE" />
 							</form>
