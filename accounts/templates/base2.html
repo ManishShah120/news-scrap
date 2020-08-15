@@ -112,24 +112,112 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 		<!--footer section start-->		
+		<!--footer section start-->		
 		<footer>
+		<style type="text/css" media="screen">
+			.ftr-hdr {
+				color: #000;
+				font: 22px/1.4 "BebasNeueRegular", BebasNeue, "Bebas Neue", Arial, sans-serif;
+				margin: 1em 0 0;
+				position: center;
+			}
+
+			/* BEGIN EMAIL CAPTURE STYLES*/
+			.footer-email {
+				text-align: center;
+			}
+
+			#ftrEmailForm {
+				height: 44px;
+			}
+
+			#ftrEmailForm .error {
+				display: none;
+				color: red;
+				text-align: left;
+			}
+
+			#ftrEmailForm #ftrEmailInput {
+				background: none repeat scroll 0 0 #fff;
+				border: 1px solid #d6d6d6;
+				box-sizing: border-box;
+				color: #888;
+				float: left;
+				font: normal normal 14px/1.4 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				padding: 5px;
+				width: 70%;
+				height: 100%;
+			}
+
+			#ftrEmailForm #ftrEmailInput:hover {
+				border: 1px solid #888;
+			}
+
+			#ftrEmailForm #ftrEmailInput:focus {
+				border: 1px solid #ef9223;
+				outline: #ef9223 auto 5px;
+			}
+
+			#ftrEmailForm .button {
+				width: 30%;
+				height: 100%;
+				padding: 5px;
+				float: left;
+				border: 1px solid #dfdfdf;
+				box-sizing: border-box;
+				color: #000;
+				font: normal bold 18px/1 BebasFamily, BebasNeueRegular, "Bebas Neue", Helvetica, Arial, sans-serif;
+				text-align: center;
+				text-transform: uppercase;
+				background: #fff;
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #e1e1e1));
+				background: -webkit-linear-gradient(top, white 0, #e1e1e1 100%);
+				background: -moz-linear-gradient(top, white 0, #e1e1e1 100%);
+				background: -ms-linear-gradient(top, white 0, #e1e1e1 100%);
+				background: -o-linear-gradient(top, white 0, #e1e1e1 100%);
+				background: linear-gradient(to bottom, white 0, #e1e1e1 100%);
+				cursor: pointer;
+				vertical-align: middle;
+				outline: none;
+			}
+
+			#ftrEmailForm .button:hover,
+			#ftrEmailForm .button:active {
+				background: black;
+				color: #fff;
+				outline: none;
+			}
+
+			@media only screen and (min-width: 768px) {
+				.footer-email {
+					width: 50%;
+					float: left;
+					text-align: left;
+				}
+			}
+
+			.footer-email {
+				width: 33.3333%;
+			}
+		</style>
 			<div class="footer-bottom text-center">
-			<div class="container">
-				<div class="footer-logo">
-					<a href="/news"><span>Edu</span>News</a>
-				</div>
-				<div class="footer-social-icons">
-					<ul>
-						<li><a class="facebook" href="#"><span>Facebook</span></a></li>
-						<li><a class="twitter" href="#"><span>Twitter</span></a></li>
-						<li><a class="flickr" href="#"><span>Flickr</span></a></li>
-						<li><a class="googleplus" href="#"><span>Google+</span></a></li>
-						<li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
-					</ul>
+				<div class="container">
+					<div class="footer-logo">
+						<a href="/news"><span>Edu</span>News</a>
+					</div>
+					<div class="footer-email">
+						<h6 class="ftr-hdr" style="color: yellow">Subscribe to the mailing list</h6>
+						<div id="ftr-email" class="ftr-email-form">
+							<form method="post">
+								<input type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address" />
+								<input type="submit" class="button" value="SUBSCRIBE" />
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
 		</footer>
+        <!--footer section end-->
         <!--footer section end-->
 </body>
 </html>
