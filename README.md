@@ -2,7 +2,8 @@
 [![build](https://travis-ci.org/ikatyang/emoji-cheat-sheet.svg?branch=master)](https://travis-ci.org/ikatyang/emoji-cheat-sheet)  [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
 
 # **Edu-News**
-- A web app for all the News and Notifications from all the institution of India to stay updated about all the upcoming events from any collges and Universities at one place.
+- A web app for all the News and Notifications from all the institution of India to stay updated about all the upcoming events from any collges and Universities at one place.<br>
+**A project build during GarudaHacks Hackathon**
 
 ## How to run
 1. `mkdir Edu-News`
