@@ -56,7 +56,7 @@ def news_list(request, *args, **kwargs):
                                     datess = iitr_date[i], 
                                     linkss = iitr_link[i], 
                                     institute_name = "Indian Institute of Technology, Rourkee",
-                                    institute_city = "India, Rourkee"
+                                    institute_city = "India, Roorkee"
                                     )
     # fOR storing the scraped data directly into the dtatbase from the views.py file - END-----------------------------------------------------------------
     # fOR scraping part - END **IITR**::::::::::::::::::::::::::::::::::::::::::::::::::::::::
