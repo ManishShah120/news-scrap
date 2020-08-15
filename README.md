@@ -4,6 +4,7 @@
 # **Edu-News**
 - A web app for all the News and Notifications from all the institution of India to stay updated about all the upcoming events from any collges and Universities at one place.
 
+
 ## How to run
 1. `mkdir Edu-News`
 2. `cd Edu-News`
