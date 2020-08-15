@@ -40,11 +40,11 @@
                                                         <section class="list-left">
                                                             <h5 class="title">{{object.title}}</h5>
                                                             <span class="adprice">Schedule: {{object.datess}}</span>
-                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">Indian Institute of Technology, Guwahati</font></p>
+                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">{{object.institute_name}}</font></p>
                                                         </section>
                                                         <section class="list-right">
                                                             <span class="date">{{object.entry_date|date:'d b, Y'}}</span>
-                                                            <span class="cityname">India, Guwahati</span>
+                                                            <span class="cityname">{{object.institute_city}}</span>
                                                         </section>
                                                         <div class="clearfix"></div>
                                                     </li>
