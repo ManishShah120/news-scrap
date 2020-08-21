@@ -12,7 +12,7 @@
 4. `source env/bin/activate`
 5. `git clone https://github.com/ManishShah120/news-scrap.git`
 6. `cd news-scrap`
-7. `pip install requirements.txt`
+7. `pip install r requirements.txt`
 8. `python manage.py runserver`
 9. Go to your browser and enter this URL `127.0.0.0:8000`
 
