@@ -37,7 +37,7 @@
 [**MIT**](https://github.com/ManishShah120/news-scrap/blob/master/LICENSE)
 
 # Project Status/TODO
-1. Add all the indian Institution on the Map[Marker Icon] with a pop up message and and hyperlink to the that institution.
+1. Add all the indian Institution on the Map[Marker Icon] with a pop up message and and hyperlink to that institution.
 2. Add more scraping scripts for all the institutions.
 3. Shift all the scraping scripts to a separate dir for clean code experience.
 4. Add the backend of the footer scetion for mailing list to work
