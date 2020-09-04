@@ -39,21 +39,20 @@
 			<div class="logo">
 				<a href="/news"><span>Edu</span>News</a>
 			</div>
+			{% comment %} Start from here {% endcomment %}
+			<div class = "option">
+				<a href="#home">Home</a>
+				<a href="#contact">Contact</a>
+				<a href="#about">About</a>
+			</div>
+			{% comment %} OK {% endcomment %}
 			<div class="header-right">
-
-			
-		
-			<a class="account" href="/accounts/logout">User: {{user.username}}</a>
-			{% if user.username == '' %}
-				<a class="account" href="/accounts/login">login</a>
-			{% else %}
-				<a class="account" href="/accounts/logout">logout</a>
-			{% endif %}
-
-
-
-
-
+				<a class="account" href="/accounts/logout">User: {{user.username}}</a>
+				{% if user.username == '' %}
+					<a class="account" href="/accounts/login">login</a>
+				{% else %}
+					<a class="account" href="/accounts/logout">logout</a>
+				{% endif %}
 			</div>
 		</div>
 	</div>
