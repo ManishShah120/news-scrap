@@ -27,17 +27,9 @@
 	<script src="{% static 'js/jquery.uls.regionfilter.js' %}"></script>
 	<script src="{% static 'js/jquery.uls.core.js' %}"></script>
 	<!--From here everythig starts for the leaflet Map-->
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-	
-	<!-- Make sure you put this AFTER Leaflet's CSS -->
-	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-
-	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>	
 
 
 </head>
@@ -70,20 +62,44 @@
 
 
 	<center>
-		<div id="mapid" style='height: 280px; width: 1143px;'>
+		<div id="mapid" style='height: 338px; width: 1143px;'>
 			
 			<script>
 
-				var mymap = L.map('mapid').setView([-3.687845, 113.776067], 5);
+				var mymap = L.map('mapid').setView([26.189901, 91.751877], 12);
 
-				L.marker([-6.149493887315755, 106.80682897567749]).bindPopup('College Name').addTo(mymap);
-				L.marker([-6.149493887315755, 110.80682897567749]).bindPopup('College Name').addTo(mymap);
+				L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+					maxZoom: 18,
+					attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+						'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+						'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+					id: 'mapbox/streets-v11',
+					tileSize: 512,
+					zoomOffset: -1
+				}).addTo(mymap);
+
+				L.marker([26.187368, 91.691558]).addTo(mymap)
+					.bindPopup("<b>IITG</b><br />Visit");//.openPopup();
+
+				L.marker([26.155789, 91.664659]).addTo(mymap)
+					.bindPopup("<b>Gauhati University</b><br />Visit");//.openPopup();
+				
+				L.marker([26.144208, 91.66191]).addTo(mymap)
+					.bindPopup("<b>Assam Engineering College</b><br />Visit");//.openPopup();
 
 
 
-				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-						attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					}).addTo(mymap);
+				var popup = L.popup();
+
+				function onMapClick(e) {
+					popup
+						.setLatLng(e.latlng)
+						.setContent("You clicked the map at " + e.latlng.toString())
+						.openOn(mymap);
+				}
+
+				mymap.on('click', onMapClick);
+
 			</script>
 		</div>
 	</center>
@@ -110,92 +126,6 @@
 
 		<!--footer section start-->		
 		<footer>
-		<style type="text/css" media="screen">
-			.ftr-hdr {
-				color: #000;
-				font: 22px/1.4 "BebasNeueRegular", BebasNeue, "Bebas Neue", Arial, sans-serif;
-				margin: 1em 0 0;
-				position: center;
-			}
-
-			/* BEGIN EMAIL CAPTURE STYLES*/
-			.footer-email {
-				text-align: center;
-			}
-
-			#ftrEmailForm {
-				height: 44px;
-			}
-
-			#ftrEmailForm .error {
-				display: none;
-				color: red;
-				text-align: left;
-			}
-
-			#ftrEmailForm #ftrEmailInput {
-				background: none repeat scroll 0 0 #fff;
-				border: 1px solid #d6d6d6;
-				box-sizing: border-box;
-				color: #888;
-				float: left;
-				font: normal normal 14px/1.4 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-				padding: 5px;
-				width: 70%;
-				height: 100%;
-			}
-
-			#ftrEmailForm #ftrEmailInput:hover {
-				border: 1px solid #888;
-			}
-
-			#ftrEmailForm #ftrEmailInput:focus {
-				border: 1px solid #ef9223;
-				outline: #ef9223 auto 5px;
-			}
-
-			#ftrEmailForm .button {
-				width: 30%;
-				height: 100%;
-				padding: 5px;
-				float: left;
-				border: 1px solid #dfdfdf;
-				box-sizing: border-box;
-				color: #000;
-				font: normal bold 18px/1 BebasFamily, BebasNeueRegular, "Bebas Neue", Helvetica, Arial, sans-serif;
-				text-align: center;
-				text-transform: uppercase;
-				background: #fff;
-				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #e1e1e1));
-				background: -webkit-linear-gradient(top, white 0, #e1e1e1 100%);
-				background: -moz-linear-gradient(top, white 0, #e1e1e1 100%);
-				background: -ms-linear-gradient(top, white 0, #e1e1e1 100%);
-				background: -o-linear-gradient(top, white 0, #e1e1e1 100%);
-				background: linear-gradient(to bottom, white 0, #e1e1e1 100%);
-				cursor: pointer;
-				vertical-align: middle;
-				outline: none;
-			}
-
-			#ftrEmailForm .button:hover,
-			#ftrEmailForm .button:active {
-				background: black;
-				color: #fff;
-				outline: none;
-			}
-
-			@media only screen and (min-width: 768px) {
-				.footer-email {
-					width: 50%;
-					float: left;
-					text-align: left;
-				}
-			}
-
-			.footer-email {
-				width: 33.3333%;
-			}
-		</style>
 			<div class="footer-bottom text-center">
 				<div class="container">
 					<div class="footer-logo">
@@ -205,7 +135,7 @@
 						<h6 class="ftr-hdr" style="color: yellow">Subscribe to the mailing list</h6>
 						<div id="ftr-email" class="ftr-email-form">
 							<form method="post">
-								<input type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address" />
+								<input style="height: 39px; width: 261px; text-align: center; border-radius: 20px;" type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address" />
 								<input type="submit" class="button" value="SUBSCRIBE" />
 							</form>
 						</div>
