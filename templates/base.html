@@ -19,19 +19,10 @@
 	<link href="{% static 'css/jquery.uls.css' %}" rel="stylesheet"/>
 	<link href="{% static 'css/jquery.uls.grid.css' %}" rel="stylesheet"/>
 	<link href="{% static 'css/jquery.uls.lcd.css' %}" rel="stylesheet"/>
-	<!-- Source -->
-	<script src="{% static 'js/jquery.uls.data.js' %}"></script>
-	<script src="{% static 'js/jquery.uls.data.utils.js' %}"></script>
-	<script src="{% static 'js/jquery.uls.lcd.js' %}"></script>
-	<script src="{% static 'js/jquery.uls.languagefilter.js' %}"></script>
-	<script src="{% static 'js/jquery.uls.regionfilter.js' %}"></script>
-	<script src="{% static 'js/jquery.uls.core.js' %}"></script>
 	<!--From here everythig starts for the leaflet Map-->
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>	
-
-
 </head>
 <body>
 	<div class="header">
@@ -39,14 +30,14 @@
 			<div class="logo">
 				<a href="/news"><span>Edu</span>News</a>
 			</div>
-			{% comment %} Start from here {% endcomment %}
-			<div class = "option">
-				<a href="#home">Home</a>
-				<a href="#contact">Contact</a>
-				<a href="#about">About</a>
-			</div>
-			{% comment %} OK {% endcomment %}
 			<div class="header-right">
+				<span class="active uls-trigger" style="color: black;!important"><a href="/" style="text-decoration: none!important; color: inherit;"><b>Blogs</b></a></span>
+				<span class="active uls-trigger" style="color: black;!important"><a href="/" style="text-decoration: none!important; color: inherit;"><b>Post Event&nbsp;&nbsp;</b></a></span>
+				<!--
+				<span class="active uls-trigger">Select language</span>
+				<span class="active uls-trigger">Select language</span>
+				<span class="active uls-trigger">Select language</span>
+				-->
 				<a class="account" href="/accounts/logout">User: {{user.username}}</a>
 				{% if user.username == '' %}
 					<a class="account" href="/accounts/login">login</a>
@@ -56,9 +47,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
 
 	<center>
 		<div id="mapid" style='height: 338px; width: 1143px;'>
@@ -103,12 +91,6 @@
 		</div>
 	</center>
 
-
-
-
-
-
-
 		<!-- content-starts-here -->
 			{% block body %}
 
@@ -117,11 +99,6 @@
 
 			{% endblock body %}
 		<!-- content-end-here -->
-
-
-
-
-
 
 		<!--footer section start-->		
 		<footer>
@@ -135,7 +112,7 @@
 						<div id="ftr-email" class="ftr-email-form">
 							<form method="post">
 								<input style="height: 39px; width: 261px; text-align: center; border-radius: 20px;" type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address" />
-								<input type="submit" class="button" value="SUBSCRIBE" />
+								<input style="border-radius: 20px;!important" type="submit" class="button" value="SUBSCRIBE" />
 							</form>
 						</div>
 					</div>

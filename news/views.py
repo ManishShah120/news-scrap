@@ -87,3 +87,8 @@ def dynamic_lookup_view(request, news_slug):
         "object":obj
     }
     return render(request, 'news_detail.html', context)
+
+
+# def post_event(request):
+#     # In this portion of the code I will add all the stuffs required to save the data from any user and then display that data from the database.
+#     # in the fron end UI

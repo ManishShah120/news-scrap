@@ -39,7 +39,8 @@
 # Project Status/TODO
 1. Add all the indian Institution on the Map[Marker Icon] with a pop up message and and hyperlink to that institution.
 2. Add more scraping scripts for all the institutions.
-3. Shift all the scraping scripts to a separate dir for clean code experience.
+3. Shift all the scraping scripts to a separate package and make it importable as a module.
 4. Add the backend of the footer scetion for mailing list to work
-5. Add a feature for users of the Webapp to add their own events, seminar, webinar news to add to the webpage.
+**5. Add a feature for users of the Webapp to add their own events, seminar, webinar news to add to the webpage.**
 6. If possible make this website worldwide i.e., add all the colleges and universites[Scripts to scrap news and notification] from colleges and universities around the world.
+7. For the Post Event[Feature] in future I will also collect location coordinates and show them the place name and the date when the event will take place.
