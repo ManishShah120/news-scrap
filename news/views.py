@@ -5,6 +5,7 @@ from django.db.models import Q
 # For scraping part
 import requests
 from bs4 import BeautifulSoup
+from django.views.generic import CreateView
 
 
 def news_list(request, *args, **kwargs):
@@ -89,6 +90,7 @@ def dynamic_lookup_view(request, news_slug):
     return render(request, 'news_detail.html', context)
 
 
-# def post_event(request):
-#     # In this portion of the code I will add all the stuffs required to save the data from any user and then display that data from the database.
-#     # in the fron end UI
+class PostEvent(CreateView):
+    model = News
+    template_name = 'post_news.html'
+    fields = ['title', 'datess', 'linkss', 'institute_name', 'institute_city']
