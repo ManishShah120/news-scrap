@@ -94,3 +94,7 @@ class PostEvent(CreateView):
     model = News
     template_name = 'post_news.html'
     fields = ['title', 'datess', 'institute_name', 'institute_city']
+
+    def form_valid(self,form):
+        form.instance.entry_author = self.request.user
+        return super().form_valid(form)
