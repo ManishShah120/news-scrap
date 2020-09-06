@@ -5,94 +5,138 @@
 
 
 {% block body %}
-<!-- Products -->
-<div class="total-ads main-grid-border">
-    <div class="container">
-        
-        <hr class="line1" style='border: 1px solid #f00;'>
-        {% comment %} <div class="select-box">
-        </div> {% endcomment %}
+
+	<center>
+		<div id="mapid" style='height: 338px; width: 1143px;'>
+			
+			<script>
+
+				var mymap = L.map('mapid').setView([26.189901, 91.751877], 12);
+
+				L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+					maxZoom: 18,
+					attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+						'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+						'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+					id: 'mapbox/streets-v11',
+					tileSize: 512,
+					zoomOffset: -1
+				}).addTo(mymap);
+
+				L.marker([26.187368, 91.691558]).addTo(mymap)
+					.bindPopup("<b>IITG</b><br />Visit");//.openPopup();
+
+				L.marker([26.155789, 91.664659]).addTo(mymap)
+					.bindPopup("<b>Gauhati University</b><br />Visit");//.openPopup();
+				
+				L.marker([26.144208, 91.66191]).addTo(mymap)
+					.bindPopup("<b>Assam Engineering College</b><br />Visit");//.openPopup();
 
 
-        <div class="ads-grid">
-            <div class="side-bar col-md-3">
-                <div class="search-hotel">
-                    <h3 class="sear-head">Search Events</h3>
-                    <form method="GET" action="/news">
-                        <input type="text" value="Event name..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Event name...';}" name ="q" required="">
-                        <input type="submit" value=" ">
-                    </form>
+
+				var popup = L.popup();
+
+				function onMapClick(e) {
+					popup
+						.setLatLng(e.latlng)
+						.setContent("You clicked the map at " + e.latlng.toString())
+						.openOn(mymap);
+				}
+
+				mymap.on('click', onMapClick);
+
+			</script>
+		</div>
+	</center>
+
+    <!-- Products -->
+    <div class="total-ads main-grid-border">
+        <div class="container">
+            
+            <hr class="line1" style='border: 1px solid #f00;'>
+            {% comment %} <div class="select-box">
+            </div> {% endcomment %}
+
+
+            <div class="ads-grid">
+                <div class="side-bar col-md-3">
+                    <div class="search-hotel">
+                        <h3 class="sear-head">Search Events</h3>
+                        <form method="GET" action="/news">
+                            <input type="text" value="Event name..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Event name...';}" name ="q" required="">
+                            <input type="submit" value=" ">
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="ads-display col-md-9">
-                <div class="wrapper">
-                    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                        <div id="myTabContent" class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-                                <div>
-                                    <div id="container">
-                                        <ul class="list">
+                <div class="ads-display col-md-9">
+                    <div class="wrapper">
+                        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                            <div id="myTabContent" class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                                    <div>
+                                        <div id="container">
+                                            <ul class="list">
 
 
-                                            {% for object in object_list %}
-                                                <a href="{{object.linkss}}" target="_blank">
-                                                    <li>
-                                                        <section class="list-left">
-                                                            <h5 class="title">{{object.title}}</h5>
-                                                            <span class="adprice">Schedule: {{object.datess}}</span>
-                                                            <p class="catpath"><font color="blue">Institution</font> » <font color="black">{{object.institute_name}}</font></p>
-                                                        </section>
-                                                        <section class="list-right">
-                                                            <span class="date">{{object.entry_date|date:'d b, Y'}}</span>
-                                                            <span class="cityname">{{object.institute_city}}</span>
-                                                        </section>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                </a>
-                                            {% endfor %}
+                                                {% for object in object_list %}
+                                                    <a href="{{object.linkss}}" target="_blank">
+                                                        <li>
+                                                            <section class="list-left">
+                                                                <h5 class="title">{{object.title}}</h5>
+                                                                <span class="adprice">Schedule: {{object.datess}}</span>
+                                                                <p class="catpath"><font color="blue">Institution</font> » <font color="black">{{object.institute_name}}</font></p>
+                                                            </section>
+                                                            <section class="list-right">
+                                                                <span class="date">{{object.entry_date|date:'d b, Y'}}</span>
+                                                                <span class="cityname">{{object.institute_city}}</span>
+                                                            </section>
+                                                            <div class="clearfix"></div>
+                                                        </li>
+                                                    </a>
+                                                {% endfor %}
 
 
-                                        </ul>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <center>
+                                <center>
 
-                                {% if object_list.has_other_pages %}
-                                    <ul class="pagination pagination-sm">
-                                        
-                                        {% if object_list.has_previous %}
-                                            <li><a href="?page={{ object_list.previous_page_number }}">Prev</a></li>
-                                        {% else %}
-                                            <li class="disabled"></li>
-                                        {% endif %}
-
-                                        {% for pages in object_list.paginator.page_range %}
-                                            {% if object_list.number == pages %}
-                                                <li><a href="#">{{pages}}</a></li>
+                                    {% if object_list.has_other_pages %}
+                                        <ul class="pagination pagination-sm">
+                                            
+                                            {% if object_list.has_previous %}
+                                                <li><a href="?page={{ object_list.previous_page_number }}">Prev</a></li>
                                             {% else %}
-                                                <li><a href="?page={{pages}}">{{pages}}</a></li>
+                                                <li class="disabled"></li>
                                             {% endif %}
-                                        {% endfor %}
 
-                                        {% if object_list.has_next %}
-                                            <li><a href="?page={{ object_list.next_page_number }}">Next</a></li>
-                                        {% else %}
-                                            <li class="disabled"></li>
-                                        {% endif %}
-                                    </ul>
-                                {% endif %}
+                                            {% for pages in object_list.paginator.page_range %}
+                                                {% if object_list.number == pages %}
+                                                    <li><a href="#">{{pages}}</a></li>
+                                                {% else %}
+                                                    <li><a href="?page={{pages}}">{{pages}}</a></li>
+                                                {% endif %}
+                                            {% endfor %}
 
-                            </center>
+                                            {% if object_list.has_next %}
+                                                <li><a href="?page={{ object_list.next_page_number }}">Next</a></li>
+                                            {% else %}
+                                                <li class="disabled"></li>
+                                            {% endif %}
+                                        </ul>
+                                    {% endif %}
+
+                                </center>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="clearfix"></div>
         </div>
     </div>
-</div>
 <!-- // Products -->
 {% endblock %}
 

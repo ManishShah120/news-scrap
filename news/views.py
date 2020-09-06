@@ -93,4 +93,4 @@ def dynamic_lookup_view(request, news_slug):
 class PostEvent(CreateView):
     model = News
     template_name = 'post_news.html'
-    fields = ['title', 'datess', 'linkss', 'institute_name', 'institute_city']
+    fields = ['title', 'datess', 'institute_name', 'institute_city']
