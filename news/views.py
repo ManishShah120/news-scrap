@@ -5,7 +5,7 @@ from django.db.models import Q
 # For scraping part
 import requests
 from bs4 import BeautifulSoup
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 
 def news_list(request, *args, **kwargs):
