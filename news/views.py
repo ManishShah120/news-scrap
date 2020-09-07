@@ -106,7 +106,7 @@ def dynamic_lookup_view(request, slug):
 class PostEvent(CreateView):
     model = News
     template_name = 'post_news.html'
-    fields = ['title', 'datess', 'institute_name', 'institute_city']
+    fields = ['title', 'summary', 'image', 'datess', 'institute_name', 'institute_city']
 
     def form_valid(self,form):
         form.instance.entry_author = self.request.user

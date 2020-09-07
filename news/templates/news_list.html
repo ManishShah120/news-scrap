@@ -29,8 +29,6 @@
 				L.marker([26.144208, 91.66191]).addTo(mymap)
 					.bindPopup("<b>Assam Engineering College</b><br />Visit");//.openPopup();
 
-
-
 				var popup = L.popup();
 
 				function onMapClick(e) {
@@ -115,7 +113,7 @@
 
                                     {% if object_list.has_other_pages %}
                                         <ul class="pagination pagination-sm">
-                                            
+
                                             {% if object_list.has_previous %}
                                                 <li><a href="?page={{ object_list.previous_page_number }}">Prev</a></li>
                                             {% else %}
