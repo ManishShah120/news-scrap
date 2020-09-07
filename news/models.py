@@ -2,13 +2,13 @@ from django.db import models
 from django.utils.text import slugify
 
 class News(models.Model):
-    title         =   models.CharField(max_length=120)
-    datess        =   models.CharField(max_length=120)
-    linkss        =   models.CharField(max_length=120)
-    entry_date    =   models.DateTimeField(auto_now_add=True)
-    institute_name =  models.CharField(max_length=120)
-    institute_city  =  models.CharField(max_length=120)
-    slug          =   models.SlugField(blank=True, null=True)
+    title           =   models.CharField(max_length=120)
+    datess          =   models.CharField(max_length=120)
+    linkss          =   models.CharField(max_length=120)
+    entry_date      =   models.DateTimeField(auto_now_add=True)
+    institute_name  =   models.CharField(max_length=120)
+    institute_city  =   models.CharField(max_length=120)
+    slug            =   models.SlugField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug and self.title:
@@ -24,3 +24,6 @@ class News(models.Model):
 
     def get_absolute_url(self):
         return f"/news/{self.slug}"
+
+class PageView(models.Model):
+    hits    =   models.IntegerField(default=0)

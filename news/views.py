@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import News
+from .models import PageView
 from django.core.paginator import Paginator
 from django.db.models import Q
 # For scraping part
@@ -8,7 +9,9 @@ from bs4 import BeautifulSoup
 from django.views.generic import CreateView, DetailView
 
 
+
 def news_list(request, *args, **kwargs):
+
     # fOR scraping part - START **IITG**::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     response = requests.get("http://www.iitg.ac.in/home/eventsall/events")
     soup = BeautifulSoup(response.content,"html.parser")
@@ -76,8 +79,18 @@ def news_list(request, *args, **kwargs):
     page_number = request.GET.get('page')
     queryset = paginator.get_page(page_number)
 
+    if(PageView.objects.count()<=0):
+        x=PageView.objects.create()
+        x.save()
+    else:
+        x=PageView.objects.all()[0]
+        x.hits=x.hits+1
+        x.save()
+    context={}
+
     context = {
-       'object_list': queryset
+       'object_list': queryset,
+       'page': x.hits
     }
     return render(request, 'news_list.html', context)
 
@@ -98,3 +111,4 @@ class PostEvent(CreateView):
     def form_valid(self,form):
         form.instance.entry_author = self.request.user
         return super().form_valid(form)
+        
