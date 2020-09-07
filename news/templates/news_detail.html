@@ -9,9 +9,7 @@
 					<p> <i class="glyphicon glyphicon-map-marker"></i><a href="#">{{object.institute_city}}</a>| Added at {{object.entry_date}}</p>
 					<div class="flexslider">
 						<ul class="slides">
-							<li data-thumb="{{object.image}}">
-								<img src="{{object.image}}" />
-							</li>
+							<img src="{{ object.image.url }}" />
 						</ul>
 					</div>
 					<!-- FlexSlider -->
