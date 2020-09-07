@@ -95,8 +95,8 @@ def news_list(request, *args, **kwargs):
     return render(request, 'news_list.html', context)
 
 
-def dynamic_lookup_view(request, news_slug):
-    obj = News.objects.get(slug=news_slug)
+def dynamic_lookup_view(request, slug):
+    obj = News.objects.get(slug=slug)
     context = {
         "object":obj
     }
