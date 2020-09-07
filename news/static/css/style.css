@@ -2338,7 +2338,7 @@ h3.rate {
   outline: none;
   padding: 11px 10px 10px 10px;
   font-size: 13px;
-  color: #c4c4c4;
+  color: #000000;
 }
 .search-hotel form input[type="submit"]{
   background: url(../images/search.png) no-repeat 13px 11px rgba(24, 169, 158, 0.47);
