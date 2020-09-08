@@ -52,7 +52,7 @@ def news_list(request, *args, **kwargs):
         iitr_title.append(a.find("span", attrs={"class": "detailData"}).text)
         iitr_date.append(a.div.text)
         iitr_link.append(a['href'])
-    
+
     # fOR storing the scraped data directly into the dtatbase from the views.py file - START---------------------------------------------------------------
     for i in range(len(iitr_title)):
         News.objects.get_or_create(
