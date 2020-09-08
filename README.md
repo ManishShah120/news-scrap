@@ -24,7 +24,7 @@
 2. Linux
 3. Django
 4. Leaflet.js
-5. Html, css, js
+5. Html, css
 6. SQLite
 
 ## Contributing
@@ -37,10 +37,11 @@
 [**MIT**](https://github.com/ManishShah120/news-scrap/blob/master/LICENSE)
 
 # Project Status/TODO
-1. Add all the indian Institution on the Map[Marker Icon] with a pop up message and and hyperlink to that institution.
-2. Add more scraping scripts for all the institutions.
-3. Shift all the scraping scripts to a separate package and make it importable as a module.
-4. Add the backend of the footer scetion for mailing list to work
-**5. Add a feature for users of the Webapp to add their own events, seminar, webinar news to add to the webpage.**
-6. If possible make this website worldwide i.e., add all the colleges and universites[Scripts to scrap news and notification] from colleges and universities around the world.
-7. For the Post Event[Feature] in future I will also collect location coordinates and show them the place name and the date when the event will take place.
+1. Add all the indian as well as international Institution on the Map[Marker Icon] with a pop up message and a hyperlink to register themselves.
+2. Add an option for registration of any events posted on this site and store the data in the database.
+3. Add more scraping scripts for all the institutions.
+4. Add the backend of the footer scetion for mailing list to work.
+5. For the Post Event[Feature] in future make a field to collect the geo-coordinates of the venue where the institution is or where the event will take place and display that on the portal so that anybody can follow the route on MAP and visit the location without any worries.
+6. Add a section for the registered user so that they can see the news or events they have posted and allows them to edit or delete from front END.
+7. Solve the issue with the  Mailing List feature present in the footer section.
+8. Finally Containerise the entire project and push it to `Docker Hub`.
