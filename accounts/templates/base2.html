@@ -1,223 +1,105 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-<title>Edu-News</title>
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}">
-<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
-<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
-<!-- for-mobile-apps -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Resale Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
-<!--fonts-->
-<link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<!--//fonts-->	
-<!-- js -->
-<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-<!-- js -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/bootstrap-select.js' %}"></script>
-<script>
-  $(document).ready(function () {
-    var mySelect = $('#first-disabled2');
+    <head>
+        <title>Edu-News</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}" />
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+        <!-- for-mobile-apps -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta
+            name="keywords"
+            content="Resale Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design"
+        />
+        <script type="application/x-javascript">
+            addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+        </script>
+        <!-- //for-mobile-apps -->
+        <!--fonts-->
+        <link href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css" />
+        <!--//fonts-->
+        <script>
+            $(document).ready(function () {
+                var mySelect = $("#first-disabled2");
 
-    $('#special').on('click', function () {
-      mySelect.find('option:selected').prop('disabled', true);
-      mySelect.selectpicker('refresh');
-    });
+                $("#special").on("click", function () {
+                    mySelect.find("option:selected").prop("disabled", true);
+                    mySelect.selectpicker("refresh");
+                });
 
-    $('#special2').on('click', function () {
-      mySelect.find('option:disabled').prop('disabled', false);
-      mySelect.selectpicker('refresh');
-    });
+                $("#special2").on("click", function () {
+                    mySelect.find("option:disabled").prop("disabled", false);
+                    mySelect.selectpicker("refresh");
+                });
 
-    $('#basic2').selectpicker({
-      liveSearch: true,
-      maxOptions: 1
-    });
-  });
-</script>
-<script type="text/javascript" src="{% static 'js/jquery.leanModal.min.js' %}"></script>
-<link href="{% static 'css/jquery.uls.css' %}" rel="stylesheet"/>
-<link href="{% static 'css/jquery.uls.grid.css' %}" rel="stylesheet"/>
-<link href="{% static 'css/jquery.uls.lcd.css' %}" rel="stylesheet"/>
-<!-- Source -->
-<script src="{% static 'js/jquery.uls.data.js' %}"></script>
-<script src="{% static 'js/jquery.uls.data.utils.js' %}"></script>
-<script src="{% static 'js/jquery.uls.lcd.js' %}"></script>
-<script src="{% static 'js/jquery.uls.languagefilter.js' %}"></script>
-<script src="{% static 'js/jquery.uls.regionfilter.js' %}"></script>
-<script src="{% static 'js/jquery.uls.core.js' %}"></script>
-<script>
-			$( document ).ready( function() {
-				$( '.uls-trigger' ).uls( {
-					onSelect : function( language ) {
-						var languageName = $.uls.data.getAutonym( language );
-						$( '.uls-trigger' ).text( languageName );
-					},
-					quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
-				} );
-			} );
-		</script>
-</head>
-<body>
-	<div class="header">
-		<div class="container">
-			<div class="logo">
-				<a href="index.html"><span>Edu</span>News</a>
-			</div>
-			<div class="header-right">
-			
-			
-			<a class="account" href="/accounts/logout">User: {{user.username}}</a>
-			{% if user.username == '' %}
-				<a class="account" href="/accounts/login">login</a>
-			{% else %}
-				<a class="account" href="/accounts/logout">logout</a>
-			{% endif %}
-			
-			
-			
-			
-			</div>
-		</div>
-	</div>
+                $("#basic2").selectpicker({
+                    liveSearch: true,
+                    maxOptions: 1,
+                });
+            });
+        </script>
+        <link href="{% static 'css/jquery.uls.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/jquery.uls.grid.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/jquery.uls.lcd.css' %}" rel="stylesheet" />
+        <!-- Source -->
+        <script>
+            $(document).ready(function () {
+                $(".uls-trigger").uls({
+                    onSelect: function (language) {
+                        var languageName = $.uls.data.getAutonym(language);
+                        $(".uls-trigger").text(languageName);
+                    },
+                    quickList: ["en", "hi", "he", "ml", "ta", "fr"], //FIXME
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html"><span>Edu</span>News</a>
+                </div>
+                <div class="header-right">
+                    <a class="account" href="/accounts/logout">User: {{user.username}}</a>
+                    {% if user.username == '' %}
+                    <a class="account" href="/accounts/login">login</a>
+                    {% else %}
+                    <a class="account" href="/accounts/logout">logout</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
+        <!-- content-starts-here -->
+        {% block body %} {% endblock body %}
+        <!-- content-end-here -->
 
-
-
-
-
-
-		<!-- content-starts-here -->
-			{% block body %}
-
-
-
-
-			{% endblock body %}
-		<!-- content-end-here -->
-
-
-
-
-
-
-		<!--footer section start-->		
-		<!--footer section start-->		
-		<footer>
-		<style type="text/css" media="screen">
-			.ftr-hdr {
-				color: #000;
-				font: 22px/1.4 "BebasNeueRegular", BebasNeue, "Bebas Neue", Arial, sans-serif;
-				margin: 1em 0 0;
-				position: center;
-			}
-
-			/* BEGIN EMAIL CAPTURE STYLES*/
-			.footer-email {
-				text-align: center;
-			}
-
-			#ftrEmailForm {
-				height: 44px;
-			}
-
-			#ftrEmailForm .error {
-				display: none;
-				color: red;
-				text-align: left;
-			}
-
-			#ftrEmailForm #ftrEmailInput {
-				background: none repeat scroll 0 0 #fff;
-				border: 1px solid #d6d6d6;
-				box-sizing: border-box;
-				color: #888;
-				float: left;
-				font: normal normal 14px/1.4 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-				padding: 5px;
-				width: 70%;
-				height: 100%;
-			}
-
-			#ftrEmailForm #ftrEmailInput:hover {
-				border: 1px solid #888;
-			}
-
-			#ftrEmailForm #ftrEmailInput:focus {
-				border: 1px solid #ef9223;
-				outline: #ef9223 auto 5px;
-			}
-
-			#ftrEmailForm .button {
-				width: 30%;
-				height: 100%;
-				padding: 5px;
-				float: left;
-				border: 1px solid #dfdfdf;
-				box-sizing: border-box;
-				color: #000;
-				font: normal bold 18px/1 BebasFamily, BebasNeueRegular, "Bebas Neue", Helvetica, Arial, sans-serif;
-				text-align: center;
-				text-transform: uppercase;
-				background: #fff;
-				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #e1e1e1));
-				background: -webkit-linear-gradient(top, white 0, #e1e1e1 100%);
-				background: -moz-linear-gradient(top, white 0, #e1e1e1 100%);
-				background: -ms-linear-gradient(top, white 0, #e1e1e1 100%);
-				background: -o-linear-gradient(top, white 0, #e1e1e1 100%);
-				background: linear-gradient(to bottom, white 0, #e1e1e1 100%);
-				cursor: pointer;
-				vertical-align: middle;
-				outline: none;
-			}
-
-			#ftrEmailForm .button:hover,
-			#ftrEmailForm .button:active {
-				background: black;
-				color: #fff;
-				outline: none;
-			}
-
-			@media only screen and (min-width: 768px) {
-				.footer-email {
-					width: 50%;
-					float: left;
-					text-align: left;
-				}
-			}
-
-			.footer-email {
-				width: 33.3333%;
-			}
-		</style>
-			<div class="footer-bottom text-center">
-				<div class="container">
-					<div class="footer-logo">
-						<a href="/news"><span>Edu</span>News</a>
-					</div>
-					<div class="footer-email">
-						<h6 class="ftr-hdr" style="color: yellow">Subscribe to the mailing list</h6>
-						<div id="ftr-email" class="ftr-email-form">
-							<form method="post">
-								<input type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address" />
-								<input type="submit" class="button" value="SUBSCRIBE" />
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
+        <!--footer section start-->
+        <footer>
+            <div class="footer-bottom text-center">
+                <div class="container">
+                    <div class="footer-logo">
+                        <a href="/news"><span>Edu</span>News</a>
+                    </div>
+                    <div class="footer-email">
+                        <h6 class="ftr-hdr" style="color: yellow;">Subscribe to the mailing list</h6>
+                        <div id="ftr-email" class="ftr-email-form">
+                            <form method="post">
+                                <input type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address" />
+                                <input type="submit" class="button" value="SUBSCRIBE" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <!--footer section end-->
-        <!--footer section end-->
-</body>
+    </body>
 </html>

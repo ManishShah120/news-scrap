@@ -1,82 +1,76 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Edu-News</title>
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}">
-	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
-	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
-	<!--fonts-->
-	<link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-	<!--//fonts-->	
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script src="{% static 'js/bootstrap-select.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/jquery.leanModal.min.js' %}"></script>
-	<link href="{% static 'css/jquery.uls.css' %}" rel="stylesheet"/>
-	<link href="{% static 'css/jquery.uls.grid.css' %}" rel="stylesheet"/>
-	<link href="{% static 'css/jquery.uls.lcd.css' %}" rel="stylesheet"/>
-	<!--From here everythig starts for the leaflet Map-->
-	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>	
-</head>
-<body>
-	<div class="header">
-		<div class="container">
-			<div class="logo">
-				<a href="/news"><span>Edu</span>News</a>
-			</div>
-			<div class="header-right">
-				<span class="active uls-trigger" style="color: black;!important"><a href="/" style="text-decoration: none!important; color: inherit;"><b>Blogs</b></a></span>
-				<span class="active uls-trigger" style="color: black;!important"><a href="{% url 'post_event' %}" style="text-decoration: none!important; color: inherit;"><b>Post Event&nbsp;&nbsp;&nbsp;&nbsp;</b></a></span>
-				<!--
+    <head>
+        <title>Edu-News</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}" />
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+        <!--fonts-->
+        <link href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css" />
+        <!--//fonts-->
+        <link href="{% static 'css/jquery.uls.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/jquery.uls.grid.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/jquery.uls.lcd.css' %}" rel="stylesheet" />
+        <!--From here everythig starts for the leaflet Map-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="/news"><span>Edu</span>News</a>
+                </div>
+                <div class="header-right">
+                    <span class="active uls-trigger" style="color: black;!important">
+                        <a href="/" style="text-decoration: none !important; color: inherit;"><b>Blogs</b></a>
+                    </span>
+                    <span class="active uls-trigger" style="color: black;!important">
+                        <a href="{% url 'post_event' %}" style="text-decoration: none !important; color: inherit;"><b>Post Event&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    </span>
+                    <!--
 				<span class="active uls-trigger">Select language</span>
 				<span class="active uls-trigger">Select language</span>
 				<span class="active uls-trigger">Select language</span>
 				-->
-				<a class="account" href="/accounts/logout">User: {{user.username}}</a>
-				{% if user.username == '' %}
-					<a class="account" href="/accounts/login">login</a>
-				{% else %}
-					<a class="account" href="/accounts/logout">logout</a>
-				{% endif %}
-			</div>
-		</div>
-	</div>
+                    <a class="account" href="/accounts/logout">User: {{user.username}}</a>
+                    {% if user.username == '' %}
+                    <a class="account" href="/accounts/login">login</a>
+                    {% else %}
+                    <a class="account" href="/accounts/logout">logout</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
-		<!-- content-starts-here -->
-			{% block body %}
+        <!-- content-starts-here -->
+        {% block body %} {% endblock body %}
+        <!-- content-end-here -->
 
-
-
-
-			{% endblock body %}
-		<!-- content-end-here -->
-
-	<!--footer section start-->		
-	<footer>
-		<div class="footer-bottom text-center">
-		<center><font color="white">Website visit count: {{ page }}</font></center>
-			<div class="container">
-				<div class="footer-logo">
-					<a href="/news"><span>Edu</span>News</a>
-				</div>
-				<div class="footer-email">
-					<h6 class="ftr-hdr" style="color: yellow">Subscribe to the mailing list</h6>
-					<div id="ftr-email" class="ftr-email-form">
-						<form method="post" action="/">
-							<input style="height: 39px; width: 261px; text-align: center; border-radius: 20px;" type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address" />
-							<input style="border-radius: 20px;!important" type="submit" class="button" value="SUBSCRIBE" />
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--footer section end-->
-</body>
+        <!--footer section start-->
+        <footer>
+            <div class="footer-bottom text-center">
+                <center><font color="white">Website visit count: {{ page }}</font></center>
+                <div class="container">
+                    <div class="footer-logo">
+                        <a href="/news"><span>Edu</span>News</a>
+                    </div>
+                    <div class="footer-email">
+                        <h6 class="ftr-hdr" style="color: yellow;">Subscribe to the mailing list</h6>
+                        <div id="ftr-email" class="ftr-email-form">
+                            <form method="post" action="/">
+                                <input style="height: 39px; width: 261px; text-align: center; border-radius: 20px;" type="text" name="email_address_" id="ftrEmailInput" class="input" placeholder="Enter email address" />
+                                <input style="border-radius: 20px;!important" type="submit" class="button" value="SUBSCRIBE" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--footer section end-->
+    </body>
 </html>
